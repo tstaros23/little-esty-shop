@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<% require './lib/api/repo_name' %>
+<!-- ^ maybe move to shared to get a render? -->
 <html>
   <head>
     <title>LittleEtsyShop</title>
@@ -10,6 +12,7 @@
   </head>
 
   <body>
+    <%= RepoName.fetched_name %>
     <%= yield %>
   </body>
 </html>
