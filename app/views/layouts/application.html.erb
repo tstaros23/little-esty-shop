@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <% require './lib/api/repo_name' %>
-<!-- ^ maybe move to shared to get a render? -->
+<!-- ^ maybe move to shared to get a render? change directory to adhere to convention services in /app-->
 <html>
   <head>
     <title>LittleEtsyShop</title>
@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <%= RepoName.fetched_name %>
+    <%= GithubService.repo_name %>
     <%= yield %>
   </body>
 </html>
