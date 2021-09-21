@@ -29,10 +29,10 @@ class Merchant < ApplicationRecord
 
 
   def self.five_best_merchants
-    wip = Merchant
+    wip = joins(items: :invoices)
     require "pry"; binding.pry
   end
-  
+
   def top_five_items
 
     items.joins(invoices: :transactions)
