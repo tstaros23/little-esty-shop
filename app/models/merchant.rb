@@ -27,8 +27,20 @@ class Merchant < ApplicationRecord
     items.joins(:invoice_items).where.not('invoice_items.status = ?', 2)
   end
 
+
   def self.five_best_merchants
     wip = Merchant
     require "pry"; binding.pry
+  end
+  
+  def top_five_items
+
+    items.joins(invoices: :transactions)
+        .where(transactions: {result: :success})
+        .group('items.id')
+        .select('items.*, sum(invoice_items.quantity * invoice_items.unit_price) AS item_revenue')
+        .order(item_revenue: :desc)
+        .limit(5)
+
   end
 end
