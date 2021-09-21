@@ -92,7 +92,7 @@ RSpec.describe Merchant do
       transaction_7 = create(:transaction, result: 'failed', invoice: invoice_7)
       invoice_item_7 = create(:invoice_item, item: item_7, status: 2, unit_price: 50, quantity: 50, invoice: invoice_7)
 
-      expect(Custsomer.top_five_merchant).to eq([merchant_1.id, merchant_2.id, merchant_3.id, merchant_4.id, merchant_5.id])
+      expect(Merchant.five_best_merchants).to eq([merchant.id, merchant_2.id, merchant_3.id, merchant_4.id, merchant_5.id])
     end
   end
 

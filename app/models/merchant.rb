@@ -27,7 +27,8 @@ class Merchant < ApplicationRecord
     items.joins(:invoice_items).where.not('invoice_items.status = ?', 2)
   end
 
-  def total_revenue
-    
+  def self.five_best_merchants
+    wip = Merchant
+    require "pry"; binding.pry
   end
 end
