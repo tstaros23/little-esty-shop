@@ -18,4 +18,13 @@ class GithubService
     end
     names.join(', ')
   end
+
+  def commits
+    names = contributors.split(', ')
+    hash = Hash.new(0)
+    names.each do |name|
+    hash[name] = get_data("https://api.github.com/repos/tstaros23/little-esty-shop/commits?author=#{name}&per_page=100").length
+    end
+    hash.to_a.flatten
+  end
 end
