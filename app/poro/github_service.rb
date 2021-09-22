@@ -9,4 +9,13 @@ class GithubService
   def repo_name
     get_data(BASE_URL)[:name]
   end
+
+  def contributors
+    array = get_data('https://api.github.com/repos/tstaros23/little-esty-shop/contributors')
+    names = []
+    array.each do |hash|
+      names << hash[:login]
+    end
+    names.join(', ')
+  end
 end
