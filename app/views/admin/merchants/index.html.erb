@@ -17,3 +17,12 @@
   <% end %>
 </section>
 
+<section id='top-5-merchants'>
+  <h3>Five Best Merchants:</h3>
+  <ol>
+    <% @top_five_merchants.each do |merchant| %>
+        <li> <%= link_to merchant.name, admin_merchant_path(merchant) %>- Total revenue: <%= merchant.total_revenue %></li>
+    <% end %>
+  </ol>
+
+</section>
