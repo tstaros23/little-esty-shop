@@ -7,7 +7,7 @@ class Invoice < ApplicationRecord
   validates :status, presence: true
 
   def self.incomplete_invoices
-    joins(:invoice_items).where(invoice_items: {status: [0,1]})
+    joins(:invoice_items).where(invoice_items: {status: [0,1]}).distinct
   end
 
   def self.order_by_oldest
@@ -25,7 +25,7 @@ class Invoice < ApplicationRecord
   end
 
   def customer_name
-    #move to customer and just call customer.name ?
+    
     "#{customer.first_name} #{customer.last_name}"
   end
 
